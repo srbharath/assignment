@@ -1,1 +1,22 @@
-https://github.com/srbharath/assignment.git
+pipeline {
+    agent any
+
+    stages {
+        stage('clone') {
+            steps {
+                echo 'clone sucessful'
+            }
+        }
+         stage('compile') {
+            steps {
+                echo 'compilation sucessfull'
+            }
+        }
+         stage('package') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+          
+    }
+}
