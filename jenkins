@@ -1,20 +1,26 @@
 pipeline {
     agent any
+    environment{
+       MY_FILE = fileExists 'assignment'
+  }
 
     stages {
-        stage('clone') {
+        stage('clone repo') {
+           when { expression { MY_FILE == 'false' } }
             steps {
-                echo 'clone sucessful'
+                   bat "git clone https://github.com/srbharath/assignment.git"
+                print "pulled the code"
             }
         }
          stage('compile') {
             steps {
-                echo 'compilation sucessfull'
+                bat "cd assignment"
+                bat "mvn compile"
             }
         }
          stage('package') {
             steps {
-                echo 'Hello World'
+                bat "mvn package"
             }
         }
           
