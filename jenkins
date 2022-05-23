@@ -12,7 +12,7 @@ always {
     }
   }
 }
-}
+
   
     stages {
         stage('clone repo') {
@@ -35,4 +35,5 @@ always {
         }
           
     }
+}
 }
